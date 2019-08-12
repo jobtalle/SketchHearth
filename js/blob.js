@@ -63,15 +63,15 @@ const Blob = function(makeInfluence) {
         strengthMultiplier = 1 / totalStrength;
     };
 
-    this.draw = (context, x, y, radius) => {
+    this.draw = (context, x, y, inset, radius) => {
         const step = Math.PI * 2 / Blob.PRECISION;
 
         context.fillStyle = color;
         context.beginPath();
-        context.moveTo(x + radius * sample(0), y);
+        context.moveTo(x + inset + radius * sample(0), y);
 
         for (let i = 1; i < Blob.PRECISION; ++i) {
-            const r = radius * sample(i / Blob.PRECISION);
+            const r = inset + radius * sample(i / Blob.PRECISION);
 
             context.lineTo(
                 x + Math.cos(i * step) * r,
@@ -88,9 +88,9 @@ const Blob = function(makeInfluence) {
 
 Blob.PRECISION = 300;
 Blob.INFLUENCES = 2;
-Blob.TRANSITION_TIME = 2;
-Blob.TRANSITION_TIMER_MIN = 3;
-Blob.TRANSITION_TIMER_MAX = 8;
+Blob.TRANSITION_TIME = 3.5;
+Blob.TRANSITION_TIMER_MIN = Math.max(Blob.TRANSITION_TIME, 4);
+Blob.TRANSITION_TIMER_MAX = 6;
 Blob.COLORS = [
     "#c42b17",
     "#c46720",

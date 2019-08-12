@@ -1,6 +1,8 @@
 const Hearth = function(canvas) {
     const makeInfluence = () => {
-        return new Influence(new Cubic(), 1);
+        return new Influence(
+            new Hearth.FUNCTIONS[Math.floor(Math.random() * Hearth.FUNCTIONS.length)](),
+            Hearth.INFLUENCE_MIN + (Hearth.INFLUENCE_MAX - Hearth.INFLUENCE_MIN) * Math.random());
     };
 
     const blob = new Blob(makeInfluence);
@@ -17,8 +19,16 @@ const Hearth = function(canvas) {
             context,
             x,
             y,
-            Math.min(x, y) - Hearth.OFFSET);
+            Hearth.INSET,
+            Math.min(x, y) - Hearth.OFFSET - Hearth.INSET);
     };
 };
 
+Hearth.INSET = 64;
 Hearth.OFFSET = 64;
+Hearth.INFLUENCE_MIN = 0.5;
+Hearth.INFLUENCE_MAX = 2;
+Hearth.FUNCTIONS = [
+    Cubic,
+    Sine
+];
