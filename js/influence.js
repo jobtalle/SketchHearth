@@ -1,6 +1,6 @@
 const Influence = function(f, strength) {
+    const angleSpeed = Influence.ANGLE_SPEED_MIN + (Influence.ANGLE_SPEED_MAX - Influence.ANGLE_SPEED_MIN) * Math.random();
     let angle = Math.random();
-    let angleSpeed = 0.3;
 
     this.getStrength = () => {
         return strength;
@@ -16,3 +16,6 @@ const Influence = function(f, strength) {
         f.update(timeStep);
     };
 };
+
+Influence.ANGLE_SPEED_MIN = 0;
+Influence.ANGLE_SPEED_MAX = 0.35;
