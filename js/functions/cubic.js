@@ -18,5 +18,5 @@ Cubic.PHASES_MIN = 3;
 Cubic.PHASES_MAX = 9;
 Cubic.SPEED_MIN = 0.3;
 Cubic.SPEED_MAX = 2;
-Cubic.POWER_MIN = 1;
+Cubic.POWER_MIN = 0.7;
 Cubic.POWER_MAX = 1.7;
