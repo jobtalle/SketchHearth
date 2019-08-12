@@ -1,8 +1,7 @@
 const Blob = function(makeInfluence) {
     const influences = [];
-    let color = Blob.COLORS[0];
     let strengthMultiplier = 0;
-    let transitionTimer = 0;
+    let transitionTimer = Blob.TRANSITION_TIMER_MIN;
     let transition = 0;
     let transitioning = false;
 
@@ -43,7 +42,7 @@ const Blob = function(makeInfluence) {
             transitionTimer = Blob.TRANSITION_TIMER_MIN + (Blob.TRANSITION_TIMER_MAX - Blob.TRANSITION_TIMER_MIN) * Math.random();
             transition = 0;
 
-            influences.push(makeInfluence());
+            influences.push(makeInfluence(false));
             transitioning = true;
         }
 
@@ -87,7 +86,7 @@ const Blob = function(makeInfluence) {
     };
 
     for (let i = 0; i < Blob.INFLUENCES; ++i)
-        influences.push(makeInfluence());
+        influences.push(makeInfluence(true));
 };
 
 Blob.PRECISION = 300;

@@ -1,7 +1,7 @@
 const Hearth = function(canvas) {
-    const makeInfluence = () => {
+    const makeInfluence = initial => {
         return new Influence(
-            new Hearth.FUNCTIONS[Math.floor(Math.random() * Hearth.FUNCTIONS.length)](),
+            initial ? new Hearth.FUNCTIONS[0]() : new Hearth.FUNCTIONS[Math.floor(Math.random() * Hearth.FUNCTIONS.length)](),
             Hearth.INFLUENCE_MIN + (Hearth.INFLUENCE_MAX - Hearth.INFLUENCE_MIN) * Math.random());
     };
 
