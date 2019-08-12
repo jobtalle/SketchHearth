@@ -1,5 +1,5 @@
 const Cubic = function() {
-    const phases = Cubic.PHASES_MIN + Math.round((Cubic.PHASES_MAX - Cubic.PHASES_MIN) * Math.pow(Math.random(), Cubic.PHASE_POWER));
+    const phases = Cubic.PHASES_MIN + Math.round((Cubic.PHASES_MAX - Cubic.PHASES_MIN) * Math.random());
     const noise = cubicNoiseConfig(Math.random(), phases);
     const ySpeed = Cubic.SPEED_MIN + (Cubic.SPEED_MAX - Cubic.SPEED_MIN) * Math.random();
     const power = Cubic.POWER_MIN + (Cubic.POWER_MAX - Cubic.POWER_MIN) * Math.random();
@@ -20,4 +20,3 @@ Cubic.SPEED_MIN = 0.3;
 Cubic.SPEED_MAX = 2;
 Cubic.POWER_MIN = 0.7;
 Cubic.POWER_MAX = 1.7;
-Cubic.PHASE_POWER = 2;
