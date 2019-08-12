@@ -13,9 +13,12 @@ const Influence = function(f, strength) {
     this.update = timeStep => {
         angle += angleSpeed * timeStep;
 
+        if (angle < 0)
+            angle += 1;
+
         f.update(timeStep);
     };
 };
 
-Influence.ANGLE_SPEED_MIN = 0;
-Influence.ANGLE_SPEED_MAX = 0.35;
+Influence.ANGLE_SPEED_MIN = -0.3;
+Influence.ANGLE_SPEED_MAX = 0.3;

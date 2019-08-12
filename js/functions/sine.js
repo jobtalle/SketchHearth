@@ -10,5 +10,5 @@ const Sine = function() {
     };
 };
 
-Sine.PHASES_MIN = 2;
+Sine.PHASES_MIN = 1;
 Sine.PHASES_MAX = 11;

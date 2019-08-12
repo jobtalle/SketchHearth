@@ -65,8 +65,12 @@ const Blob = function(makeInfluence) {
 
     this.draw = (context, x, y, inset, radius) => {
         const step = Math.PI * 2 / Blob.PRECISION;
+        const gradient = context.createRadialGradient(x, y, 0, x, y, radius);
 
-        context.fillStyle = color;
+        gradient.addColorStop(0, Blob.COLORS[0]);
+        gradient.addColorStop(1, Blob.COLORS[1]);
+
+        context.fillStyle = gradient;
         context.beginPath();
         context.moveTo(x + inset + radius * sample(0), y);
 
@@ -87,12 +91,11 @@ const Blob = function(makeInfluence) {
 };
 
 Blob.PRECISION = 300;
-Blob.INFLUENCES = 2;
+Blob.INFLUENCES = 3;
 Blob.TRANSITION_TIME = 3.5;
 Blob.TRANSITION_TIMER_MIN = Math.max(Blob.TRANSITION_TIME, 4);
 Blob.TRANSITION_TIMER_MAX = 6;
 Blob.COLORS = [
-    "#c42b17",
-    "#c46720",
-    "#e1b135"
+    "#e1b135",
+    "#c42b17"
 ];
