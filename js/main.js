@@ -1,5 +1,6 @@
 const wrapper = document.getElementById("wrapper");
 const canvas = document.getElementById("renderer");
+const hearth = new Hearth(canvas);
 let lastDate = new Date();
 
 const resize = () => {
@@ -8,7 +9,11 @@ const resize = () => {
 };
 
 const update = timeStep => {
+    hearth.update();
 
+    const context = canvas.getContext("2d");
+
+    hearth.draw(context);
 };
 
 const loopFunction = () => {
