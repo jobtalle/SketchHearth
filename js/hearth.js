@@ -26,8 +26,8 @@ const Hearth = function(canvas) {
 
 Hearth.INSET = 64;
 Hearth.OFFSET = 64;
-Hearth.INFLUENCE_MIN = 0.5;
-Hearth.INFLUENCE_MAX = 2;
+Hearth.INFLUENCE_MIN = 0.2;
+Hearth.INFLUENCE_MAX = 2.8;
 Hearth.FUNCTIONS = [
     Cubic,
     Sine
