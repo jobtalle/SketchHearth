@@ -1,3 +1,5 @@
+const TIME_STEP_MAX = 0.1;
+
 const wrapper = document.getElementById("wrapper");
 const canvas = document.getElementById("renderer");
 const hearth = new Hearth(canvas);
@@ -9,7 +11,7 @@ const resize = () => {
 };
 
 const update = timeStep => {
-    hearth.update(timeStep);
+    hearth.update(Math.min(timeStep, TIME_STEP_MAX));
 
     const context = canvas.getContext("2d");
 
