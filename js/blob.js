@@ -1,12 +1,27 @@
 const Blob = function() {
-    let color = "#c44033";
+    const influences = [new Influence(new Cubic(), 1)];
+    let color = "#c43f30";
+    let strengthMultiplier = 0;
 
-    const sample = f => {
-        return 0.5;
+    const sample = x => {
+        let sample = 0;
+
+        for (const influence of influences)
+            sample += influence.sample(x) * influence.getStrength();
+
+        return sample * strengthMultiplier;
     };
 
     this.update = timeStep => {
+        let totalStrength = 0;
 
+        for (const influence of influences) {
+            influence.update(timeStep);
+
+            totalStrength += influence.getStrength();
+        }
+
+        strengthMultiplier = 1 / totalStrength;
     };
 
     this.draw = (context, x, y, radius) => {

@@ -1,6 +1,10 @@
 const Hearth = function(canvas) {
     const blob = new Blob();
 
+    const makeInfluence = () => {
+        return new Influence(new Cubic(), 1);
+    };
+
     this.update = timeStep => {
         blob.update(timeStep);
     };

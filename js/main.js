@@ -9,9 +9,11 @@ const resize = () => {
 };
 
 const update = timeStep => {
-    hearth.update();
+    hearth.update(timeStep);
 
     const context = canvas.getContext("2d");
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
 
     hearth.draw(context);
 };
