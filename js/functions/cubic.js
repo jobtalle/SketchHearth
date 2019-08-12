@@ -10,7 +10,7 @@ const Cubic = function() {
     };
 
     this.sample = x => {
-        return Math.pow(cubicNoiseSample2(noise, 1 + x * phases, y), power);
+        return Math.pow(cubicNoiseSample2(noise, 2 + x * phases, y), power);
     };
 };
 
