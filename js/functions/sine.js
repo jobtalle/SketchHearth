@@ -15,4 +15,4 @@ Sine.PHASES_MIN = 1;
 Sine.PHASES_MAX = 11;
 Sine.POWER_MIN = 0.7;
 Sine.POWER_MAX = 1.3;
-Sine.PHASE_POWER = 2;
+Sine.PHASE_POWER = 3;
