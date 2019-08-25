@@ -102,7 +102,7 @@ const Blob = function(makeInfluence) {
 };
 
 Blob.PRECISION = 256;
-Blob.INFLUENCES = 4;
+Blob.INFLUENCES = 3;
 Blob.TRANSITION_TIME = 3.5;
 Blob.TRANSITION_TIMER_MIN = Math.max(Blob.TRANSITION_TIME, 4);
 Blob.TRANSITION_TIMER_MAX = 5;
